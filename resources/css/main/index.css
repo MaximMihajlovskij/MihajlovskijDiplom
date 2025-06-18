@@ -1,0 +1,362 @@
+.hero-section {
+    width: 100%;
+    height: 100%; /* 🚀 Заполняет весь экран */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* ✅ Слайдер */
+.swiper-container {
+    width: 100%;
+    height: 100%; 
+    position: relative;
+}
+
+/* ✅ Центрирование изображений */
+.swiper-slide img {
+    width: 100%;
+    height: auto;
+    max-height: 85vh; /* Ограничение высоты для лучшей адаптивности */
+    object-fit: contain; /* ✅ Показывает изображение полностью */
+    aspect-ratio: 16 / 9; /* ✅ Сохраняет пропорции */
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+/* ✅ Разделы */
+section {
+    padding: 60px 0;
+    text-align: center;
+    background:rgb(255, 255, 255);
+}
+
+/* ✅ Заголовки */
+h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color:#007bff;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+/* ✅ Карточки услуг */
+/* ✅ Общий стиль блоков */
+.service-box,
+.feature-item {
+    width: 100%;
+    max-width: 350px; /* 🚀 Одинаковая ширина */
+    height: 250px; /* 🚀 Одинаковая высота */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    padding: 20px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.service-box:hover,
+.feature-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.service-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.service-box img {
+    width: 80px;
+    margin-bottom: 10px;
+}
+
+/* ✅ Увеличенный размер иконок */
+#services-section .icon i {
+    font-size: 3rem; /* 🔹 Сделали крупнее */
+    color: #007bff; /* 🔹 Синий цвет */
+}
+
+/* 📌 Адаптивность */
+@media (max-width: 768px) {
+    #services-section .icon i {
+        font-size: 2.5rem; /* 🔹 Чуть меньше на мобильных */
+    }
+}
+
+/* ✅ Раздел "Почему выбирают нас?" */
+.features {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+}
+
+/* ✅ Контейнер карты */
+.map-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: #f8f9fa;
+}
+
+/* ✅ Стилизация карты */
+.map-container {
+    width: 100%;
+    max-width: 1200px; /* 🚀 Увеличенная ширина */
+    height: 550px; /* 🚀 Увеличенная высота */
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    border: none;
+}
+
+/* 📌 Адаптивность */
+@media (max-width: 768px) {
+    .map-container {
+        width: 100%; /* 🚀 Полная ширина */
+        height: 450px; /* 🚀 Увеличено для мобильных */
+    }   
+}
+
+/* ✅ Заголовок */
+.section-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+/* ✅ Галерея */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.gallery img {
+    width: 250px;
+    height: 160px;
+    border-radius: 10px;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* ✅ Кнопка "Смотреть больше" */
+.btn-view-more {
+    display: inline-block;
+    background: #007bff;
+    color: white;
+    padding: 12px 25px;
+    font-size: 18px;
+    border-radius: 8px;
+    margin-top: 20px;
+    text-decoration: none;
+    transition: background 0.3s ease-in-out;
+}
+
+.btn-view-more:hover {
+    background: #0056b3;
+}
+
+/* ✅ Общий стиль */
+.company-section {
+    padding: 60px 0;
+    background: #f8f9fa;
+}
+
+.company-info, .company-resources {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.resource-item p {
+    text-align: left; /* 🚀 Текст внутри `p` слева */
+}
+
+.container .company-info {
+    text-align: left; /* ✅ Принудительное выравнивание */
+}
+
+/* ✅ Заголовки */
+.company-title, .resources-title {
+    color: #007bff;
+    font-weight: bold;
+}
+
+/* ✅ Ресурсы */
+.resources-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.resource-item {
+    display: flex;
+    gap: 10px;
+}
+
+.resource-item img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+}
+
+/* ✅ Кнопка */
+.btn-learn-more {
+    display: inline-block;
+    background: #007bff;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    align-self: flex-start;
+}
+
+.btn-learn-more:hover {
+    background: #0056b3;
+}
+
+/* ПРо нас */
+/* ✅ Общий стиль секции */
+.trust-section {
+    padding: 60px 0;
+    background: #f8f9fa;
+    text-align: center;
+}
+
+/* ✅ Заголовок */
+.trust-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #345AED;
+    margin-bottom: 30px;
+}
+
+/* ✅ Блок с преимуществами */
+.trust-list {
+    display: flex;
+    justify-content: space-between;;
+    align-items: center;
+    gap: 15px; /* 🔹 Уменьшаем расстояние между блоками */
+    flex-wrap: nowrap; /* 🔹 Запрещаем перенос на новую строку */
+}
+
+/* ✅ Элемент списка */
+.trust-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 120px; /* 🔹 Минимальная ширина */
+}
+
+/* ✅ Цифры вместо иконок */
+.trust-item .number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #345AED;
+    background: rgba(52, 90, 237, 0.1);
+    padding: 15px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ✅ Стрелки */
+.arrow {
+    font-size: 2rem;
+    color: #345AED;
+}
+
+/* 📌 Адаптивность */
+@media (max-width: 768px) {
+    .trust-list {
+        flex-wrap: wrap; /* 🔹 Позволяем перенос на мобильных */
+        gap: 10px;
+    }
+
+    .arrow {
+        display: none; /* 🚀 Убираем стрелки на мобильных */
+    }
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/*Форма обратной связи*/ 
+#contact-section {
+    background-image: url('/storage/banners/JUb0THSB2pYD5Nb8zYpYaXYWnAxotW0xVT84mfMg.jpg'); /* Укажи путь к изображению */
+    background-size: cover; /* Масштабирование */
+    background-position: center; /* Центрирование */
+    background-repeat: no-repeat; /* Без повторений */
+    padding: 60px 0; /* Отступы */
+}
+.contact-section .img {
+    width: 100%;
+    background-position: top center; 
+}
+
+.contact-section .contact-info p a {
+    color: #4b69bd; 
+}
+
+.contact-section .contact-form {
+    width: 100%; 
+}
+@media (max-width: 767.98px) {
+    .contact-section .contact-form .btn-primary {
+        display: block;
+        width: 100%; 
+    } 
+}
+
+.contact-section .box {
+    width: 100%; 
+}
+.contact-section .box h3 {
+    font-size: 20px; 
+}
+.contact-section .box .icon {
+    margin-top: 5px; 
+}
+.contact-section .box .icon span {
+    color: #4b69bd; 
+}
+
+/* 📌 Основные стили иконок */
+.icon i {
+    font-size: 2rem; /* Увеличенный размер */
+    color: #007bff; /* Синий цвет */
+}
+
+/* ✅ Адаптивность */
+@media (max-width: 768px) {
+    .icon i {
+        font-size: 1.8rem; /* Чуть меньше на мобильных */
+    }
+}

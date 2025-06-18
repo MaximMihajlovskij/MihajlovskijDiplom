@@ -1,0 +1,64 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Models\Turniket;
+use App\Models\Firm;
+use App\Models\Review;
+
+class TurniketsController extends Controller
+{
+    public function index(Request $request)
+    {
+        $query = Turniket::query();
+        // Поиск по названию камеры
+        if ($request->filled('search')) {
+            $query->where('name_turniket', 'like', "%{$request->search}%");
+        }
+        // Фильтрация по цене
+        if ($request->filled('price_min')) {
+            $query->where('price', '>=', $request->price_min);
+        }
+        if ($request->filled('price_max')) {
+            $query->where('price', '<=', $request->price_max);
+        }
+        // Фильтрация по фирме
+        if ($request->filled('firm_id')) {
+            $query->where('firm_id', $request->firm_id);
+        }
+        $turnikets = $query->paginate(8);
+        $firms=Firm::all();
+        $breadcrumbs=[
+            ['title'=> 'Главная','url'=> route('index')],
+            ['title'=> 'Турникеты','url'=> route('turn')],
+        ];
+        return view("turn.turn", ['turnikets' => $turnikets, 'firms'=>$firms, 'breadcrumbs'=> $breadcrumbs]);
+    }  
+    
+    public function show(Request $request, Turniket $turniket)
+    {
+        $query = Review::where('turniket_id', $turniket->id);
+    
+        if ($request->filled('date_from') && $request->filled('date_to')) {
+            $query->whereBetween('created_at', [
+                date('Y-m-d 00:00:00', strtotime($request->date_from)),
+                date('Y-m-d 23:59:59', strtotime($request->date_to))
+            ]);
+        } elseif ($request->filled('date_from')) {
+            $query->where('created_at', '>=', date('Y-m-d 00:00:00', strtotime($request->date_from)));
+        } elseif ($request->filled('date_to')) {
+            $query->where('created_at', '<=', date('Y-m-d 23:59:59', strtotime($request->date_to)));
+        }        
+        
+        $reviews = $query->orderBy('created_at', 'desc')->get(); // Получаем только отфильтрованные отзывы!
+        $breadcrumbs=[
+            ['title'=> 'Главная','url'=> route('index')],
+            ['title'=> 'Турникеты','url'=> route('turn')],
+            ['title' => $turniket->name_turniket, 'url' => route('turn.descriptionturn', $turniket->id)],
+        ];
+        return view("turn.descriptionturn", ['turniket' => $turniket, 'breadcrumbs'=> $breadcrumbs, 'reviews' => $reviews]);
+    }
+}
+
+
